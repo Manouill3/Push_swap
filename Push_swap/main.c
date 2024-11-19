@@ -17,7 +17,10 @@ int	main(int ac, char **argv)
 	
 	if (ac > 1)
 	{
-		i = 0;
-		while ()
+		i = 1;
+		while (argv[i])
+		{
+			
+		}
 	}
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main_fucntions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 09:01:28 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/19 10:41:34 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/19 21:22:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	len_first_tab(char *str)
+int	count_word(char *str)
 {
 	int	i;
 	int	count;
