@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/11/19 08:56:59 by mdegache         ###   ########.fr        #
+#    Updated: 2024/11/20 08:31:45 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(SRC) $(CFLAGS)
+		@$(MAKE) -C libft/ re
+		$(CC) $(SRC) $(CFLAGS) -L libft/ -lft
 		$(AR) $(NAME) -o $^
 
 clean:
