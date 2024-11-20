@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/20 11:39:20 by mdegache         ###   ########.fr       */
+/*   Created: 2024/10/09 07:43:03 by mdegache          #+#    #+#             */
+/*   Updated: 2024/11/20 10:10:47 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "stdlib.h"
-
-typedef struct s_stack
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-        int				value;
-		struct s_stack	*next;
-}	t_stack;
+	size_t				i;
+	unsigned const char	*t;
 
-char	**parsing(int nb_word, char **av, char **tab);
-int	is_whitespace(char c);
-int	count_word(char *str);
-int	total_word(char **av);
-
-#endif
+	i = 0;
+	t = s;
+	while (i < n)
+	{
+		if (t[i] == (unsigned char)c)
+			return ((char *) &s[i]);
+		i++;
+	}
+	return (0);
+}

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/20 11:39:20 by mdegache         ###   ########.fr       */
+/*   Created: 2024/10/09 08:03:48 by mdegache          #+#    #+#             */
+/*   Updated: 2024/11/20 10:11:34 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "stdlib.h"
-
-typedef struct s_stack
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-        int				value;
-		struct s_stack	*next;
-}	t_stack;
+	size_t				i;
+	unsigned const char	*a1;
+	unsigned const char	*a2;
 
-char	**parsing(int nb_word, char **av, char **tab);
-int	is_whitespace(char c);
-int	count_word(char *str);
-int	total_word(char **av);
-
-#endif
+	i = 0;
+	a1 = s1;
+	a2 = s2;
+	while (i < n)
+	{
+		if (a1[i] != a2[i])
+			return ((unsigned char) a1[i] - a2[i]);
+		i++;
+	}
+	return (0);
+}
