@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/20 11:39:20 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:28:35 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ typedef struct s_stack
 }	t_stack;
 
 char	**parsing(int nb_word, char **av, char **tab);
-int	is_whitespace(char c);
-int	count_word(char *str);
-int	total_word(char **av);
+int	    is_whitespace(char c);
+int	    count_word(char *str);
+int	    total_word(char **av);
+int     error_numb(char **tab, int nb_word);
 
 #endif

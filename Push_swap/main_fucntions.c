@@ -3,28 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_fucntions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 09:01:28 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/19 21:22:27 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/20 15:01:44 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	count_word(char *str)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while(str[i])
-	{
-		if (str[i] > 32 && str[i] < 123)
-		{
-			if (str[i + 1] < 33 || str[i + 1] == '\0')
-				count++;
-		}
-		i++;
-	}
-	return (count);
-}

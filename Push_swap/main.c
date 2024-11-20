@@ -46,26 +46,27 @@ char	**parsing(int nb_word, char **av, char **tab)
 int	main(int ac, char **av)
 {
 	int	nb_word;
-	char	**tab;
 	int	i;
-	int	j;
+	char	**tab;
+	int	*list;
 	
 	tab = NULL;
+	list = NULL;
 	if (ac > 1)
 	{
 		nb_word = total_word(av);
+		list = malloc(sizeof(int) * nb_word);
 		tab = parsing(nb_word, av, tab);
-		i = 0;
-		while (tab[i])
+		if (error_numb(tab, nb_word) == 0)
+			printf("%s", "Error\nOne arg is not a number\n");
+		else
 		{
-			j = 0;
-			while (tab[i][j])
+			i = 0;
+			while (i < nb_word)
 			{
-				printf("%c", tab[i][j]);
-				j++;
+				list[i] = ft_atoi(tab[i]);
+				i++;
 			}
-			printf("%s", "\n");
-			i++;
 		}
 		free(tab);
 	}
