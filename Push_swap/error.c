@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:02:01 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/20 15:30:52 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/20 19:22:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,8 @@ int error_numb(char **tab, int nb_word)
             return (0);
     }
     return (1);
+}
+int error_double(int *list)
+{
+    
 }
