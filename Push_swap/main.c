@@ -73,9 +73,10 @@ int	main(int ac, char **av)
 		else
 		{
 			list = make_list(tab, list, nb_word);
-			if (error_double(list) == 0)
+			if (error_double(list, nb_word) == 0)
 				printf("%s", "Error\nTwo int are similar\n");
 		}
+		free (list);
 		free(tab);
 	}
 }
