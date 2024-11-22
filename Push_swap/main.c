@@ -42,11 +42,22 @@ char	**parsing(int nb_word, char **av, char **tab)
 	}
 	return (tab);
 }
+int	*make_list(char **tab, int *list, int nb_word)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb_word)
+	{
+		list[i] = ft_atoi(tab[i]);
+		i++;
+	}
+	return(list);
+}
 
 int	main(int ac, char **av)
 {
 	int	nb_word;
-	int	i;
 	char	**tab;
 	int	*list;
 	
@@ -61,12 +72,9 @@ int	main(int ac, char **av)
 			printf("%s", "Error\nOne arg is not a number\n");
 		else
 		{
-			i = 0;
-			while (i < nb_word)
-			{
-				list[i] = ft_atoi(tab[i]);
-				i++;
-			}
+			list = make_list(tab, list, nb_word);
+			if (error_double(list) == 0)
+				printf("%s", "Error\nTwo int are similar\n");
 		}
 		free(tab);
 	}

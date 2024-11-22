@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/20 15:28:35 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:17:12 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int	    is_whitespace(char c);
 int	    count_word(char *str);
 int	    total_word(char **av);
 int     error_numb(char **tab, int nb_word);
+int error_double(int *list);
 
 #endif
