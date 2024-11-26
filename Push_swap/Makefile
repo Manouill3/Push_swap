@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/11/26 08:22:29 by mdegache         ###   ########.fr        #
+#    Updated: 2024/11/26 14:38:16 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC = main.c\
 	side_funct.c\
 	error.c\
 	Parsing_arg.c\
+	sort_funct.c\
 
 OBJ = $(SRC:.c=.o)
 
@@ -30,7 +31,7 @@ $(NAME): $(OBJ)
 		$(CC) $(OBJ) $(CFLAGS) -L$(LIB) -lft -o $@
 
 $(LIBFT): 
-		@$(MAKE) -C $(LIB)
+		@$(MAKE) -C $(LIB) bonus
 
 %.o:%.c
 	$(CC) $(CFLAGS) -I$(INC) -I$(LIB) -o $@ -c $<

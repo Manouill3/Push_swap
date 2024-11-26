@@ -6,13 +6,24 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 08:12:48 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/26 08:42:48 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/26 13:16:30 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
-#include <stdio.h>
+
+t_list	*list_to_stack(int *list, t_list *stack_a, int nb_word)
+{
+	int	i;
+	
+	i = 0;
+	while (i < nb_word)
+	{
+		ft_lstadd_front(&stack_a, ft_lstnew(list[i]));
+		i++;
+	}
+	return (stack_a);
+}
 
 int *arg_to_list(int ac, char **av)
 {
@@ -35,7 +46,6 @@ int *arg_to_list(int ac, char **av)
 			if (error_double(list, nb_word) == 0)
 				printf("%s", "Error\nTwo int are similar\n");
 		}
-		free (list);
 		free(tab);
 	}
 	return (list);
@@ -49,7 +59,7 @@ int	*make_list(char **tab, int *list, int nb_word)
 	while (i < nb_word)
 	{
 		list[i] = ft_atoi(tab[i]);
-		printf("%d ", list[i]);
+		//printf("%d ", list[i]);
 		i++;
 	}
 	return(list);

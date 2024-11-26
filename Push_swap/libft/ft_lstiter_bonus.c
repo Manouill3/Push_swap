@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:27:09 by mdegache          #+#    #+#             */
-/*   Updated: 2024/10/16 11:49:46 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:01:15 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(int))
 {
 	if (!lst)
 		return ;

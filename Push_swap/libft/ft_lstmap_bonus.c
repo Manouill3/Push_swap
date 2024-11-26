@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:52:01 by mdegache          #+#    #+#             */
-/*   Updated: 2024/10/16 16:04:53 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:33:51 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int(*f)(int))
 {
 	t_list	*new;
 	t_list	*result;
-	void	*cont;
+	int		cont;
 
-	if (!lst || !f || !del)
+	if (!lst || !f)
 		return (0);
 	result = NULL;
 	while (lst)
@@ -28,8 +29,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			new = ft_lstnew(cont);
 		if (!new)
 		{
-			del(cont);
-			ft_lstclear(&result, del);
+			ft_lstclear(&result);
 			return (0);
 		}
 		ft_lstadd_back(&result, new);
