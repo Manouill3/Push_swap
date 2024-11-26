@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/11/20 15:22:29 by mdegache         ###   ########.fr        #
+#    Updated: 2024/11/26 08:22:29 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INC = .
 SRC = main.c\
 	side_funct.c\
 	error.c\
+	Parsing_arg.c\
 
 OBJ = $(SRC:.c=.o)
 
