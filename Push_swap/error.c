@@ -6,12 +6,11 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:02:01 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/26 08:40:16 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:38:55 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int error_numb(char **tab, int nb_word)
 {
@@ -40,7 +39,7 @@ int error_numb(char **tab, int nb_word)
     }
     return (1);
 }
-int error_double(int *list, int nb_word)
+int error_double(long *list, int nb_word)
 {
     int i;
     int j;
@@ -48,6 +47,8 @@ int error_double(int *list, int nb_word)
     i = 0;
     while(i < nb_word)
     {
+        if (list[i] > 2147483647 || list[i] < -2147483648)
+            return(0);
         j = i + 1;
         while(j < nb_word)
         {

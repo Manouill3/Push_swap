@@ -5,51 +5,36 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/11/27 14:35:09 by mdegache         ###   ########.fr        #
+#    Created: 2024/10/18 10:34:11 by mdegache          #+#    #+#              #
+#    Updated: 2024/10/24 09:36:43 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = libftprintf.a
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
-LIBFT = libft/libft.a
-LIB = libft
-PRINTF = ft_printf/libftprintf.a
-LIBBIS = ft_printf
-INC = .
-SRC = main.c\
-	side_funct.c\
-	error.c\
-	Parsing_arg.c\
-	sort_funct.c\
+CC = cc -c
+CFLAGS = -Wall -Werror -Wextra
+AR = ar rcs
+
+SRC = ft_printf.c\
+		params.c\
+		params2.c\
+		side_func.c\
+		side_pointer.c
 
 OBJ = $(SRC:.c=.o)
 
-all: $(LIBFT) $(PRINTF) $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(OBJ) $(CFLAGS) -L$(LIB) -L$(LIBBIS) -lft -o $@
-
-$(LIBFT): 
-		@$(MAKE) -C $(LIB) bonus
-
-$(PRINTF):
-		@$(MAKE) -C $(LIBBIS)
-
-%.o:%.c
-	$(CC) $(CFLAGS) -I$(INC) -I$(LIB) -o $@ -c $<
+		$(CC) $(SRC) $(CFLAGS)
+		$(AR) $(NAME) -o $^
 
 clean:
-		@$(MAKE) -C $(LIB) clean
-		@$(MAKE) -C $(LIBBIS) clean
 		rm -f $(OBJ)
-
+    
 fclean: clean
-		@$(MAKE) -C $(LIB) fclean
-		@$(MAKE) -C $(LIBBIS) fclean
 		rm -f $(NAME) $(OBJ)
-
+    
 re: fclean all
  .PHONY: clean fclean all re

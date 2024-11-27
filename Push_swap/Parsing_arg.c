@@ -6,13 +6,13 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 08:12:48 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/26 13:16:30 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:38:36 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*list_to_stack(int *list, t_list *stack_a, int nb_word)
+t_list	*list_to_stack(long *list, t_list *stack_a, int nb_word)
 {
 	int	i;
 	
@@ -25,33 +25,33 @@ t_list	*list_to_stack(int *list, t_list *stack_a, int nb_word)
 	return (stack_a);
 }
 
-int *arg_to_list(int ac, char **av)
+long *arg_to_list(int ac, char **av)
 {
 	int	nb_word;
 	char	**tab;
-	int	*list;
+	long	*list;
 	
 	tab = NULL;
 	list = NULL;
 	if (ac > 1)
 	{
 		nb_word = total_word(av);
-		list = malloc(sizeof(int) * nb_word);
+		list = malloc(sizeof(long) * nb_word);
 		tab = parsing(nb_word, av, tab);
 		if (error_numb(tab, nb_word) == 0)
-			printf("%s", "Error\nOne arg is not a number\n");
+			ft_printf("%s", "Error\n");
 		else
 		{
 			list = make_list(tab, list, nb_word);
 			if (error_double(list, nb_word) == 0)
-				printf("%s", "Error\nTwo int are similar\n");
+				ft_printf("%s", "Error\n");
 		}
 		free(tab);
 	}
 	return (list);
 }
 
-int	*make_list(char **tab, int *list, int nb_word)
+long	*make_list(char **tab, long *list, int nb_word)
 {
 	int	i;
 
@@ -59,7 +59,6 @@ int	*make_list(char **tab, int *list, int nb_word)
 	while (i < nb_word)
 	{
 		list[i] = ft_atoi(tab[i]);
-		//printf("%d ", list[i]);
 		i++;
 	}
 	return(list);

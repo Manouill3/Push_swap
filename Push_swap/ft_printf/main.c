@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:51:03 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/27 14:06:47 by mdegache         ###   ########.fr       */
+/*   Created: 2024/10/23 10:51:15 by mdegache          #+#    #+#             */
+/*   Updated: 2024/11/11 16:16:56 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atoi(const char *nptr)
-{
-	int	i;
-	long	nb;
-	int	sign;
+#include <stdio.h>
+#include "ft_printf.h"
 
-	sign = 1;
-	nb = 0;
-	i = 0;
-	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -sign;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		nb = nb * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (nb * sign);
+int	main(void)
+{
+	printf("len: %d\n", ft_printf("%d ", -884555));
+	printf("len: %d\n", printf("%d ", -884555));
 }
+
+
