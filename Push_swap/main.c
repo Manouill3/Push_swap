@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	list = arg_to_list(ac, av);
 	stack_a = list_to_stack(list, stack_a, nb_word);
-	
+
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	free(list);

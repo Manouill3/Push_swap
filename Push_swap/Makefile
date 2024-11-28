@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/11/27 14:35:09 by mdegache         ###   ########.fr        #
+#    Updated: 2024/11/28 08:55:22 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 LIBFT = libft/libft.a
-LIB = libft
 PRINTF = ft_printf/libftprintf.a
 LIBBIS = ft_printf
+LIB = libft
 INC = .
 SRC = main.c\
 	side_funct.c\
