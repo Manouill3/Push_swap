@@ -13,18 +13,6 @@
 
 #include "push_swap.h"
 
-void	print_stack(t_list *stack)
-{
-	t_list	*curr;
-
-	curr = stack;
-	while (curr)
-	{
-		ft_printf("%d |\n", curr->content);
-		curr = curr->next;
-	}
-}
-
 int	main(int ac, char **av)
 {
 	long	*list;
@@ -37,7 +25,11 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	list = arg_to_list(ac, av);
 	stack_a = list_to_stack(list, stack_a, nb_word);
-
+	print_stack(stack_a);
+	ft_printf("\n");
+	sort_stacks(&stack_a, /*&stack_b,*/ nb_word);
+	ft_printf("\n");
+	print_stack(stack_a);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	free(list);

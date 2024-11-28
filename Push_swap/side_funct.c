@@ -6,11 +6,23 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:34:01 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/26 09:22:33 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/28 10:01:03 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_stack(t_list *stack)
+{
+	t_list	*curr;
+
+	curr = stack;
+	while (curr)
+	{
+		ft_printf("%d |\n", curr->content);
+		curr = curr->next;
+	}
+}
 
 int	is_whitespace(char c)
 {

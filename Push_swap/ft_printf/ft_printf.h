@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:03:48 by mdegache          #+#    #+#             */
-/*   Updated: 2024/10/24 09:25:39 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/28 09:12:11 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	param_u(va_list arg);
 int	param_xl(va_list arg);
 int	param_xu(va_list arg);
 int	param_p(va_list arg);
-int	ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr_base(long long n, char *base);

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_funct.c                                       :+:      :+:    :+:   */
+/*   sort_funct_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:15:19 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/27 14:02:50 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:54:18 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list  *swap_x(t_list *stack)
+t_list  *swap_a(t_list *stack, int all)
 {   
     t_list  *tmp;
     
@@ -21,9 +21,11 @@ t_list  *swap_x(t_list *stack)
     tmp = stack->next;
     stack->next = stack->next->next;
     tmp->next = stack;
+    if (all != 0)
+        ft_printf("sa\n");
     return (tmp);
 }
-void  push_x(t_list **stacksta, t_list **stackend)
+void  push_a(t_list **stacksta, t_list **stackend, int all)
 {
     t_list  *tmp;
     
@@ -33,8 +35,10 @@ void  push_x(t_list **stacksta, t_list **stackend)
     ft_lstadd_front(stackend, ft_lstnew((*stacksta)->content));
     ft_lstdelone(*stacksta);
     *stacksta = tmp;
+    if (all != 0)
+        ft_printf("pa\n");
 }
-t_list  *rotate_x(t_list *stack)
+t_list  *rotate_a(t_list *stack, int all)
 {
     t_list  *tmp;
     t_list  *curr;
@@ -50,9 +54,11 @@ t_list  *rotate_x(t_list *stack)
         curr = curr->next;
     curr->next = tmp;
     tmp->next = NULL;
+    if (all != 0)
+        ft_printf("ra\n");
     return (stack);
 }
-t_list  *reverse_rotate_x(t_list *stack)
+t_list  *reverse_rotate_a(t_list *stack, int all)
 {
     t_list  *tmp;
     t_list  *curr;
@@ -68,5 +74,7 @@ t_list  *reverse_rotate_x(t_list *stack)
     curr = curr->next;
     curr->next = stack;
     tmp->next = NULL;
+    if (all != 0)
+        ft_printf("rra\n");
     return (curr);
 }

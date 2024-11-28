@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 08:12:48 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/27 14:38:36 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:01:35 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ t_list	*list_to_stack(long *list, t_list *stack_a, int nb_word)
 {
 	int	i;
 	
-	i = 0;
-	while (i < nb_word)
+	i = nb_word - 1;
+	while (i >= 0)
 	{
 		ft_lstadd_front(&stack_a, ft_lstnew(list[i]));
-		i++;
+		i--;
 	}
 	return (stack_a);
 }
