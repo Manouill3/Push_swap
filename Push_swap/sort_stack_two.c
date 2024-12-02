@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_funct_all.c                                   :+:      :+:    :+:   */
+/*   sort_stack_two.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:13:32 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/02 09:54:48 by mdegache         ###   ########.fr       */
+/*   Created: 2024/12/02 09:36:39 by mdegache          #+#    #+#             */
+/*   Updated: 2024/12/02 13:59:51 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void  swap_all(t_list **stack_a, t_list **stack_b)
-{   
-    swap_a(*stack_a, 0);
-    swap_b(*stack_b, 0);
-    ft_printf("ss\n");
-}
-void  rotate_all(t_list **stack_a, t_list **stack_b)
+void    sort_b(t_list **stack_a, t_list **stack_b)
 {
-    rotate_a(*stack_a, 0);
-    rotate_b(*stack_b, 0);
-    ft_printf("rr\n");
+    push_b(stack_a, stack_b);
+    push_b(stack_a, stack_b);
+    
 }
-void  reverse_rotate_all(t_list **stack_a, t_list **stack_b)
+void    sort_b_till_3(t_list **stack_a, t_list **stack_b)
 {
-    reverse_rotate_a(*stack_a, 0);
-    reverse_rotate_b(*stack_b, 0);
-    ft_printf("rrr\n");
+    int i;
+    
+    i = ft_rotate_type(*stack_a, *stack_b);
+    
 }

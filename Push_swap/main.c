@@ -20,6 +20,8 @@ int	main(int ac, char **av)
 	t_list	*stack_b;
 	int		nb_word;
 
+	if (ac > 1)
+	{
 	nb_word = total_word(av);
 	stack_a = NULL;
 	stack_b = NULL;
@@ -27,10 +29,13 @@ int	main(int ac, char **av)
 	stack_a = list_to_stack(list, stack_a, nb_word);
 	print_stack(stack_a);
 	ft_printf("\n");
-	sort_stacks(&stack_a, /*&stack_b,*/ nb_word);
+	sort_stacks(&stack_a, &stack_b, nb_word);
 	ft_printf("\n");
 	print_stack(stack_a);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	free(list);
+	}
+	else
+		ft_printf("Error\n");
 }

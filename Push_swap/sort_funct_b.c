@@ -6,26 +6,26 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:04:28 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/28 14:56:07 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/02 09:51:35 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list  *swap_b(t_list *stack, int all)
+void  swap_b(t_list **stack, int all)
 {   
     t_list  *tmp;
     
     if (!stack)
         return(NULL);
-    tmp = stack->next;
-    stack->next = stack->next->next;
+    tmp = (*stack)->next;
+    (*stack)->next = (*stack)->next->next;
     tmp->next = stack;
     if (all != 0)
         ft_printf("sb\n");
     return (tmp);
 }
-void  push_b(t_list **stacksta, t_list **stackend, int all)
+void  push_b(t_list **stacksta, t_list **stackend)
 {
     t_list  *tmp;
     
@@ -35,10 +35,9 @@ void  push_b(t_list **stacksta, t_list **stackend, int all)
     ft_lstadd_front(stackend, ft_lstnew((*stacksta)->content));
     ft_lstdelone(*stacksta);
     *stacksta = tmp;
-    if (all != 0)
-        ft_printf("pb\n");
+    ft_printf("pb\n");
 }
-t_list  *rotate_b(t_list *stack, int all)
+void  rotate_b(t_list **stack, int all)
 {
     t_list  *tmp;
     t_list  *curr;
@@ -49,7 +48,7 @@ t_list  *rotate_b(t_list *stack, int all)
         return (stack);
     curr = stack;
     tmp = stack;
-    stack = stack->next;
+    stack = (*stack)->next;
     while (curr->next)
         curr = curr->next;
     curr->next = tmp;
@@ -58,7 +57,7 @@ t_list  *rotate_b(t_list *stack, int all)
         ft_printf("rb\n");
     return (stack);
 }
-t_list  *reverse_rotate_b(t_list *stack, int all)
+void  reverse_rotate_b(t_list **stack, int all)
 {
     t_list  *tmp;
     t_list  *curr;
