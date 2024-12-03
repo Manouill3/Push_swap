@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:00:11 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/02 14:45:02 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:56:01 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_rotate_type_ba(t_list *stack_a, t_list *stack_b)
 	t_list	*tmp;
 
 	tmp = stack_b;
-	i = ft_case_rrarrb(stack_a, stack_b, stack_b->content);
+	i = ft_case_rrarrb_a(stack_a, stack_b, tmp->content);
 	while (tmp)
 	{
 		if (i > ft_case_rarb_a(stack_a, stack_b, tmp->content))
@@ -33,7 +33,6 @@ int	ft_rotate_type_ba(t_list *stack_a, t_list *stack_b)
 	}
 	return (i);
 }
-
 int	ft_rotate_type_ab(t_list *stack_a, t_list *stack_b)
 {
 	int		i;

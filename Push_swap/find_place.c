@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:01:53 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/02 13:03:19 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/03 10:32:55 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_find_place(t_list *stack, int nbr)
 	if (nbr > stack->content && nbr < ft_lstlast(stack)->content)
 		i = 0;
 	else if (nbr > ft_max(stack) || nbr < ft_min(stack))
-		i = ft_find_index(stack, ft_max(stack));
+		i = find_index(stack, ft_max(stack));
 	else
 	{
 		tmp = stack->next;

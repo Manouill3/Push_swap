@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/02 09:53:22 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:11:34 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,30 @@ void  	rotate_all(t_list **stack_a, t_list **stack_b);
 void  	reverse_rotate_all(t_list **stack_a, t_list **stack_b);
 void	sort_three(t_list **stack);
 void    sort_three_mul(t_list **stack);
-void 	sort_stacks(t_list **stack_a, t_list **stack_b, int nb_word);
+void	sort_two(t_list **stack);
+int     ft_min(t_list *stack);
+int     ft_max(t_list *stack);
+int     find_index(t_list *stack, int nbr);
+int     ft_find_place(t_list *stack, int nbr);
+int     ft_case_rarb_a(t_list *stack_a, t_list *stack_b, int c);
+int     ft_case_rrarrb_a(t_list *stack_a, t_list *stack_b, int c);
+int     ft_case_rarrb_a(t_list *stack_a, t_list *stack_b, int c);
+int     ft_case_rrarb_a(t_list *stack_a, t_list *stack_b, int c);
+int     ft_case_rarb(t_list *stack_a, t_list *stack_b, int c);
+int     ft_case_rrarrb(t_list *stack_a, t_list *stack_b, int c);
+int     ft_case_rarrb(t_list *stack_a, t_list *stack_b, int c);
+int     ft_case_rrarb(t_list *stack_a, t_list *stack_b, int c);
+int     ft_rotate_type_ba(t_list *stack_a, t_list *stack_b);
+int     ft_rotate_type_ab(t_list *stack_a, t_list *stack_b);
+int     ft_apply_rarb(t_list **stack_a, t_list **stack_b, int c, char s);
+int     ft_apply_rrarrb(t_list **stack_a, t_list **stack_b, int c, char s);
+int     ft_apply_rrarb(t_list **stack_a, t_list **stack_b, int c, char s);
+int     ft_apply_rarrb(t_list **stack_a, t_list **stack_b, int c, char s);
+void    sort_b_till_3(t_list **stack_a, t_list **stack_b);
+void    ft_sort_b(t_list **stack_a, t_list **stack_b);
+void    ft_sort_a(t_list **stack_a, t_list **stack_b);
+void	ft_sort(t_list **stack_a, t_list **stack_b, int nb_word);
+int     ft_checksorted(t_list *stack_a);
+
 
 #endif
