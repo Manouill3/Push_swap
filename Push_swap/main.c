@@ -30,11 +30,11 @@ int	main(int ac, char **av)
 		print_stack(stack_a);
 		ft_printf("\n");
 		ft_sort(&stack_a, &stack_b, nb_word);
+		free(list);
 		ft_printf("\n");
 		print_stack(stack_a);
 		ft_lstclear(&stack_a);
 		ft_lstclear(&stack_b);
-		free(list);
 	}
 	else
 		ft_printf("Error\n");

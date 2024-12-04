@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/03 14:11:34 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:01:32 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	sort_two(t_list **stack);
 int     ft_min(t_list *stack);
 int     ft_max(t_list *stack);
 int     find_index(t_list *stack, int nbr);
-int     ft_find_place(t_list *stack, int nbr);
+int     ft_find_place_a(t_list *stack_a, int nbr);
 int     ft_case_rarb_a(t_list *stack_a, t_list *stack_b, int c);
 int     ft_case_rrarrb_a(t_list *stack_a, t_list *stack_b, int c);
 int     ft_case_rarrb_a(t_list *stack_a, t_list *stack_b, int c);
@@ -64,6 +64,6 @@ void    ft_sort_b(t_list **stack_a, t_list **stack_b);
 void    ft_sort_a(t_list **stack_a, t_list **stack_b);
 void	ft_sort(t_list **stack_a, t_list **stack_b, int nb_word);
 int     ft_checksorted(t_list *stack_a);
-
+int	    ft_find_place_b(t_list *stack_b, int nbr);
 
 #endif
