@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 08:12:48 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/28 13:01:35 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:21:24 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ long *arg_to_list(int ac, char **av)
 		nb_word = total_word(av);
 		list = malloc(sizeof(long) * nb_word);
 		tab = parsing(nb_word, av, tab);
-		if (error_numb(tab, nb_word) == 0)
-			ft_printf("%s", "Error\n");
-		else
+		list = make_list(tab, list, nb_word);
+		if (error_numb(tab, nb_word) < 0 || error_double(list, nb_word) < 0)
 		{
-			list = make_list(tab, list, nb_word);
-			if (error_double(list, nb_word) == 0)
-				ft_printf("%s", "Error\n");
+			ft_printf("%s", "Error\n");
+			free(list);
+			free(tab);
+			return(NULL);
 		}
 		free(tab);
 	}

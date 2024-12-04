@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:04:28 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/03 12:29:51 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:34:16 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,17 @@ void  reverse_rotate_b(t_list **stack, int all)
     t_list  *tmp;
     t_list  *curr;
     
-    if (!stack)
+    if (!*stack)
         return ;
     if (ft_lstsize(*stack) <= 1)
         return ;
     curr = *stack;
     while (curr->next->next)
         curr = curr->next;
-    tmp = curr;
-    curr = curr->next;
-    curr->next = *stack;
-    tmp->next = NULL;
+    tmp = curr->next;
+    curr->next = NULL;
+    tmp->next = *stack;
+    *stack = tmp;
     if (all != 0)
         ft_printf("rrb\n");
 }

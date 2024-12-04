@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/04 10:01:32 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/04 14:52:59 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,11 @@ void    ft_sort_a(t_list **stack_a, t_list **stack_b);
 void	ft_sort(t_list **stack_a, t_list **stack_b, int nb_word);
 int     ft_checksorted(t_list *stack_a);
 int	    ft_find_place_b(t_list *stack_b, int nbr);
+void	TopOrBottom_a(t_list **stack, int c, int write);
+void	TopOrBottom_b(t_list **stack, int c, int write);
+void	TopOrBottom_all_a(t_list **stack_a, t_list **stack_b, int c);
+void	TopOrBottom_all_b(t_list **stack_a, t_list **stack_b, int c);
+void	minTopOrBottom_b(t_list **stack, int write);
+void	minTopOrBottom_a(t_list **stack, int write);
 
 #endif

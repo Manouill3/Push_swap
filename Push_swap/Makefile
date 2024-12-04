@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/12/03 10:58:49 by mdegache         ###   ########.fr        #
+#    Updated: 2024/12/04 14:53:15 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ SRC = main.c\
 	rotate_stack.c\
 	sort_stack_two.c\
 	find_place.c\
+	apply_utils.c\
+	apply_utils_all.c\
 	
 
 OBJ = $(SRC:.c=.o)
