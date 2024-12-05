@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/12/05 10:38:33 by mdegache         ###   ########.fr        #
+#    Updated: 2024/12/05 10:40:52 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,6 @@ SRC = main.c\
 	sort_funct_a.c\
 	sort_funct_b.c\
 	sort_funct_all.c\
-	sort_stack.c\
-	apply_rotate_case.c\
-	rotate_case_ba.c\
-	rotate_case.c\
-	rotate_stack.c\
-	sort_stack_two.c\
-	find_place.c\
 	
 
 OBJ = $(SRC:.c=.o)

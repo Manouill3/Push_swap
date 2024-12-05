@@ -1,40 +1,32 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_funct_all.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 09:29:04 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/19 14:06:43 by mdegache         ###   ########.fr       */
+/*   Created: 2024/11/28 14:13:32 by mdegache          #+#    #+#             */
+/*   Updated: 2024/12/03 09:47:59 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void  swap_all(t_list **stack_a, t_list **stack_b)
+{   
+    swap_a(stack_a, 0);
+    swap_b(stack_b, 0);
+    ft_printf("ss\n");
+}
+void  rotate_all(t_list **stack_a, t_list **stack_b)
 {
-	long	*list;
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		nb_word;
-
-	if (ac > 1)
-	{
-		nb_word = total_word(av);
-		stack_a = NULL;
-		stack_b = NULL;
-		list = arg_to_list(ac, av);
-		if (list != NULL)
-		{
-			stack_a = list_to_stack(list, stack_a, nb_word);
-			ft_sort(&stack_a, &stack_b, nb_word);
-		}
-		free(list);
-		ft_lstclear(&stack_a);
-		ft_lstclear(&stack_b);
-	}
-	else
-		ft_printf("Error\n");
+    rotate_a(stack_a, 0);
+    rotate_b(stack_b, 0);
+    ft_printf("rr\n");
+}
+void  reverse_rotate_all(t_list **stack_a, t_list **stack_b)
+{
+    reverse_rotate_a(stack_a, 0);
+    reverse_rotate_b(stack_b, 0);
+    ft_printf("rrr\n");
 }

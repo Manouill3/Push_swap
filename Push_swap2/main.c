@@ -16,6 +16,7 @@
 int	main(int ac, char **av)
 {
 	long	*list;
+	char	**tab;
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		nb_word;
@@ -25,13 +26,17 @@ int	main(int ac, char **av)
 		nb_word = total_word(av);
 		stack_a = NULL;
 		stack_b = NULL;
-		list = arg_to_list(ac, av);
+		tab = NULL;
+		tab = parsing(nb_word, av, tab);
+		list = arg_to_list(ac, av, tab);
 		if (list != NULL)
 		{
 			stack_a = list_to_stack(list, stack_a, nb_word);
-			ft_sort(&stack_a, &stack_b, nb_word);
+			/*if (a_is_sorted == 0)
+				ft_sort(&stack_a, &stack_b, nb_word);*/
 		}
 		free(list);
+		free_all(tab, nb_word);
 		ft_lstclear(&stack_a);
 		ft_lstclear(&stack_b);
 	}
