@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/05 22:43:11 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/06 10:57:52 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,36 @@ char	**arg_to_tab(char **av, int nb_word);
 long	*tab_to_list(char **tab, long *list, int nb_word);
 int		total_word(char **av);
 int		count_word(char *str);
-int		error_arg(char **tab);
+int		error_arg(char **tab, int nb_word);
 int		error_double(long *list, int nb_word);
 t_list  *list_to_stack(long *list, t_list *stack_a, int nb_word);
 void	print_stack(t_list *stack);
 void    free_all(char **tab, int nb_word);
-int	is_whitespace(char c);
+int	    is_whitespace(char c);
+int     a_is_sorted(t_list *stack_a);
+void    push_b_till_3(t_list **stack_a, t_list **stack_b);
+void    sort_small_stack(t_list **stack_a, t_list **stack_b, int nb_word);
+void    sort_big_stack(t_list **stack_a, t_list **stack_b);
+void    ft_sort(t_list **stack_a, t_list **stack_b, int nb_word);
+void	sort_three(t_list **stack);
+void	sort_three_mul(t_list **stack);
+void	val_top(t_list **stack, int val, char s);
+void    swap_a(t_list **stack, int all);
+void    push_a(t_list **stacksta, t_list **stackend);
+void    rotate_a(t_list **stack, int all);
+void    reverse_rotate_a(t_list **stack, int all);
+void    swap_b(t_list **stack, int all);
+void    push_b(t_list **stacksta, t_list **stackend);
+void    rotate_b(t_list **stack, int all);
+void    reverse_rotate_b(t_list **stack, int all);
+void    swap_all(t_list **stack_a, t_list **stack_b);
+void    rotate_all(t_list **stack_a, t_list **stack_b);
+void    reverse_rotate_all(t_list **stack_a, t_list **stack_b);
+int	    ft_min(t_list *stack);
+int	    ft_max(t_list *stack);
+int     ft_index(t_list *stack, int c);
+int	    move_to_top(t_list *stack, int val, char s);
+int check_char(char **tab, int i);
+
 
 #endif

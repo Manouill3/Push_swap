@@ -12,31 +12,19 @@
 
 #include "push_swap.h"
 
-int error_arg(char **tab)
+int error_arg(char **tab, int nb_word)
 {
     int i;
-    int j;
-    int count;
 
     i = 0;
-    while (tab[i])
+    while (i < nb_word)
     {
-        j = 0;
-        count = 0;
-        while (tab[i][j])
-        {
-            if (tab[i][j] == '-' || tab[i][j] == '+')
-                j++;
-            if ((tab[i][j] < '0' || tab[i][j] > '9') && tab[i][j] != ' ')
-                return (-1);
-            if (tab[i][j] != ' ')
-                count++;
-            j++;
-        }
-        i++;
-        if (count == 0)
+        if(check_char(tab, i) < 0)
             return (-1);
+        i++;
     }
+    if (i < nb_word || nb_word == 0)
+        return (-1);
     return (1);
 }
 int error_double(long *list, int nb_word)
@@ -59,4 +47,25 @@ int error_double(long *list, int nb_word)
         i++;
     }
     return(1);
+}
+int check_char(char **tab, int i)
+{
+    int j;
+    int count;
+
+    j = 0;
+    count = 0;
+    while (tab[i][j])
+    {
+        if ((tab[i][j] == '-' || tab[i][j] == '+') && (tab[i][j - 1] < '0' || tab[i][j - 1] > '9'))
+            j++;
+        if ((tab[i][j] < '0' || tab[i][j] > '9') && tab[i][j] != ' ')
+            return (-1);
+        if (tab[i][j] != ' ')
+            count++;
+        j++;
+    }
+    if (count == 0)
+        return (-1);
+    return (1);
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   lst_utils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 08:09:07 by mdegache          #+#    #+#             */
-/*   Updated: 2024/10/17 11:27:44 by mdegache         ###   ########.fr       */
+/*   Created: 2024/12/06 10:59:27 by mdegache          #+#    #+#             */
+/*   Updated: 2024/12/06 11:07:38 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+#include "push_swap.h"
+
+int    sup_on_top(t_list *stack, int val, char s)
 {
-	int					i;
-	unsigned char		*c;
+    int i;
 
-	c = s;
-	i = 0;
-	while (n != 0)
-	{
-		c[i] = '\0';
-		n--;
-		i++;
-	}
+    val_top(&stack, ft_min(stack), s);
+    i = 0;
+    while (stack->content < val)
+    {
+        rotate_a(&stack, 0);
+        i++;
+    }
+    return(i);
 }

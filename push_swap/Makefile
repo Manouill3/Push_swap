@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/12/05 20:20:15 by marvin           ###   ########.fr        #
+#    Updated: 2024/12/06 09:49:19 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,11 @@ SRC = main.c\
 	check_error.c\
 	Parsing.c\
 	lst_utils.c\
+	sort.c\
+	To_sort.c\
+	sort_funct_a.c\
+	sort_funct_b.c\
+	sort_funct_all.c\
 	
 OBJ = $(SRC:.c=.o)
 

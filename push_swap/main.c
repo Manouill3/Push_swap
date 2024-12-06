@@ -17,13 +17,14 @@ int	main(int ac, char **av)
 	int		nb_word;
 	long	*list;
 	t_list	*stack_a;
+	t_list	*stack_b;
 
 	if (ac <= 1)
-		ft_printf("Error\n");
+		return(0);
 	else
 	{
 		stack_a = NULL;
-		list = NULL;
+		stack_b = NULL;
 		nb_word = total_word(av);
 		list = arg_to_list(av, nb_word);
 		if (list != NULL)

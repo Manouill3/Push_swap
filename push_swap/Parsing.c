@@ -17,10 +17,8 @@ long    *arg_to_list(char **av, int nb_word)
     char    **tab;
     long    *list;
     
-    tab = NULL;
-    list = NULL;
     tab = arg_to_tab(av, nb_word);
-    if (error_arg(tab) < 0)
+    if (error_arg(tab, nb_word) < 0)
     {
         ft_printf("Error\n");
         free_all(tab, nb_word);
@@ -32,6 +30,7 @@ long    *arg_to_list(char **av, int nb_word)
     {
         ft_printf("Error\n");
         free_all(tab, nb_word);
+        free(list);
         return(NULL);
     }
     free_all(tab, nb_word);
@@ -45,7 +44,7 @@ char    **arg_to_tab(char **av, int nb_word)
     char    **tab;
     char    **tmp_tab;
 
-    i = 0;
+    i = 1;
     k = 0;
     tab = malloc(sizeof(char *) * nb_word + 1);
     if (!tab)
@@ -54,7 +53,7 @@ char    **arg_to_tab(char **av, int nb_word)
     {
         tmp_tab = ft_split(av[i], ' ');
         j = 0;
-        while (j < count_word(av[i]))
+        while (tmp_tab[j])
             tab[k++] = tmp_tab[j++];
         free(tmp_tab);
         i++;
