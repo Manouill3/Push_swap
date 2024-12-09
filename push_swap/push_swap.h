@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/06 10:57:52 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:02:44 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    free_all(char **tab, int nb_word);
 int	    is_whitespace(char c);
 int     a_is_sorted(t_list *stack_a);
 void    push_b_till_3(t_list **stack_a, t_list **stack_b);
-void    sort_small_stack(t_list **stack_a, t_list **stack_b, int nb_word);
+void    sort_small_stack(t_list **stack_a, int nb_word);
 void    sort_big_stack(t_list **stack_a, t_list **stack_b);
 void    ft_sort(t_list **stack_a, t_list **stack_b, int nb_word);
 void	sort_three(t_list **stack);
@@ -50,8 +50,18 @@ void    reverse_rotate_all(t_list **stack_a, t_list **stack_b);
 int	    ft_min(t_list *stack);
 int	    ft_max(t_list *stack);
 int     ft_index(t_list *stack, int c);
-int	    move_to_top(t_list *stack, int val, char s);
-int check_char(char **tab, int i);
+int	    count_val_to_top(t_list *stack, int val, char s);
+int     check_char(char **tab, int i);
+int	    nb_move_ab(t_list *stack_a, t_list *stack_b, int val);
+int	    nb_move_ba(t_list *stack_a, t_list *stack_b, int val);
+void    push_one(t_list **stack_a, t_list **stack_b, int i);
+int    push_it_ab(t_list **stack_a, t_list **stack_b, int val);
+void    sup_top(t_list **stack, int val, char s);
+int    count_sup_to_top(t_list *stack, int val, char s);
+void    back_to_a(t_list **stack_a, t_list **stack_b);
+void    back_to_a(t_list **stack_a, t_list **stack_b);
+int     rr_or_r(t_list *stack, int val);
+int     r_or_rr(t_list *stack, int val);
 
 
 #endif

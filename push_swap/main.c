@@ -31,8 +31,13 @@ int	main(int ac, char **av)
 		{
 			stack_a = list_to_stack(list, stack_a, nb_word);
 			print_stack(stack_a);
+			ft_printf("\n");
+			ft_sort(&stack_a, &stack_b, nb_word);
+			ft_printf("\n");
+			print_stack(stack_a);
 		}
 		free(list);
 		ft_lstclear(&stack_a);
+		ft_lstclear(&stack_b);
 	}
 }

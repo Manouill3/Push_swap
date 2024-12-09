@@ -61,7 +61,7 @@ int ft_index(t_list *stack, int c)
     }
     return(i);
 }
-int	move_to_top(t_list *stack, int val, char s)
+int	count_val_to_top(t_list *stack, int val, char s)
 {
 	int	i;
 
