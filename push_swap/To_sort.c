@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:46:45 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/09 10:03:17 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/10 00:01:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,9 @@ int	nb_move_ab(t_list *stack_a, t_list *stack_b, int val)
 {
 	int	i;
 	
-	i = count_val_to_top(stack_a, val, 'a');
-	i += count_sup_to_top(stack_b, val, 'b');
+	if (count_val_to_top(stack_a, val) >= 0)
+		i = count_val_to_top(stack_a, val);
+	if (count_sup_to_top(stack_b, val) >= 0)
+		i += count_sup_to_top(stack_b, val);
     return(i);
-}
-int	nb_move_ba(t_list *stack_a, t_list *stack_b, int val)
-{
-	int	i;
-	
-	i = count_val_to_top(stack_b, val, 'b');
-	i += count_sup_to_top(stack_a, val, 'a');
-    return (i);
 }

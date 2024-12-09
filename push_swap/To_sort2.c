@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 09:16:34 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/09 14:38:36 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:56:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void    sup_top(t_list **stack, int val, char s)
 		val_top(stack, ft_min(*stack), s);
         while ((*stack)->content < val)
         {
-            if (rr_or_r(*stack, val) < r_or_rr(*stack, val))
+            if (rr_or_r(*stack, val) > ft_lstsize(*stack) / 2)
 				reverse_rotate_a(stack, 1);
 			else
 				rotate_a(stack, 1);          
@@ -51,10 +51,10 @@ void    sup_top(t_list **stack, int val, char s)
 		val_top(stack, ft_min(*stack), s);
         while ((*stack)->content < val)
         {
-            if (rr_or_r(*stack, val) < r_or_rr(*stack, val))
+            if (rr_or_r(*stack, val) > ft_lstsize(*stack) / 2)
 				reverse_rotate_b(stack, 1);
 			else
-				rotate_b(stack, 1);          
+				rotate_b(stack, 1);
         }
 	}    
 }
@@ -68,5 +68,5 @@ void    back_to_a(t_list **stack_a, t_list **stack_b)
             val_top(stack_a, ft_min(*stack_a), 'a');
         push_a(stack_b, stack_a);
     }
-    rotate_a(stack_a, 1);
+    val_top(stack_a, ft_min(*stack_a), 'a');
 }

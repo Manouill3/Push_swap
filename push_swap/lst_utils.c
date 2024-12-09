@@ -54,37 +54,27 @@ int ft_index(t_list *stack, int c)
     int i;
 
 	i = 0;
-    while (stack->content != c)
-    {
+	while (stack)
+	{
+    	if(stack->content == c)
+    		return(i);
         i++;
         stack = stack->next;
-    }
-    return(i);
+	}
+	return (-1);
 }
-int	count_val_to_top(t_list *stack, int val, char s)
+int	count_val_to_top(t_list *stack, int val)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	if (s == 'a')
-	{
-		while (stack->content != val)
-		{
-			i++;
-			if (ft_index(stack, val) > ft_lstsize(stack) / 2)
-				reverse_rotate_a(&stack, 0);
-			else
-				rotate_a(&stack, 0);
-		}
-		return (i);
-	}
 	while (stack->content != val)
 	{
 		i++;
 		if (ft_index(stack, val) > ft_lstsize(stack) / 2)
-			reverse_rotate_b(&stack, 0);
+			reverse_rotate_a(&stack, 0);
 		else
-			rotate_b(&stack, 0);
+			rotate_a(&stack, 0);
 	}
-	return(i);
+	return (i);
 }

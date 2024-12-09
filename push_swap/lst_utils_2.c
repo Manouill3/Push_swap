@@ -3,31 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:59:27 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/09 14:16:41 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/10 00:02:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    count_sup_to_top(t_list *stack, int val, char s)
+int count_sup_to_top(t_list *stack_b, int val)
 {
     int i;
 
-    val_top(&stack, ft_min(stack), s);
     i = 0;
-    while (stack->content < val)
+    if (val > ft_max(stack_b) || val < ft_min(stack_b))
     {
-        if (ft_index(stack, val) > ft_lstsize(stack) / 2)
-				reverse_rotate_a(&stack, 1);
-			else
-				rotate_a(&stack, 1);
-        i++;          
+        while (stack_b->content < ft_max(stack_b))
+        {
+            if (rr_or_r(stack_b, ft_max(stack_b)) > ft_lstsize(stack_b) / 2)
+                reverse_rotate_a(&stack_b, 0);
+            else
+                rotate_a(&stack_b, 0);
+            i++;
+        }
     }
-    return(i);
+    else
+    {
+        while (stack_b->content < val || stack_b->next->content > val)
+        {
+            rotate_b(&stack_b, 0);
+            i++;
+        }
+    }
+    return (i);
 }
+
 
 int rr_or_r(t_list *stack, int val)
 {
@@ -36,19 +47,7 @@ int rr_or_r(t_list *stack, int val)
     i = 0;
     while (stack->content < val)
     {
-        rotate_a(&stack, 0);
-        i++;
-    }
-    return (i);
-}
-int r_or_rr(t_list *stack, int val)
-{
-    int i;
-
-    i = 0;
-    while (stack->content < val)
-    {
-        reverse_rotate_a(&stack, 0);
+        stack = stack->next;
         i++;
     }
     return (i);
