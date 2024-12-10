@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/10 00:01:04 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/10 13:19:07 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,13 @@ int     ft_index(t_list *stack, int c);
 int	    count_val_to_top(t_list *stack, int val);
 int     check_char(char **tab, int i);
 int	    nb_move_ab(t_list *stack_a, t_list *stack_b, int val);
-int	    nb_move_ba(t_list *stack_a, t_list *stack_b, int val);
 void    push_one(t_list **stack_a, t_list **stack_b, int i);
-int    push_it_ab(t_list **stack_a, t_list **stack_b, int val);
-void    sup_top(t_list **stack, int val, char s);
-int    count_sup_to_top(t_list *stack_b, int val);
-void    back_to_a(t_list **stack_a, t_list **stack_b);
+int     push_it_ab(t_list **stack_a, t_list **stack_b, int val);
+void    sup_top_a(t_list **stack, int val);
+int     count_sup_to_top(t_list *stack_b, int val);
 void    back_to_a(t_list **stack_a, t_list **stack_b);
 int     rr_or_r(t_list *stack, int val);
+int     r_or_rr(t_list *stack, int val);
 
 
 #endif

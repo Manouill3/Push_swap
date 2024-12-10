@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:37:04 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/09 16:16:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/10 14:54:23 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,7 @@ int a_is_sorted(t_list *stack_a)
 }
 void    push_b_till_3(t_list **stack_a, t_list **stack_b)
 {
-    t_list  *tmp;
-    int     i;
-    
-    i = nb_move_ab(*stack_a, *stack_b, (*stack_a)->content);
-    while(ft_lstsize(*stack_a) > 3)
-    {
-        tmp = *stack_a;
-        while (tmp)
-        {
-            if (i > nb_move_ab(tmp, *stack_b, tmp->content))
-                i = nb_move_ab(tmp, *stack_b, tmp->content);
-            tmp = tmp->next;
-        }    
-    }
-    push_one(stack_a, stack_b, i);
+      
 }
 void    sort_small_stack(t_list **stack_a, int nb_word)
 {

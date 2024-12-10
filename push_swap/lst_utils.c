@@ -55,13 +55,13 @@ int ft_index(t_list *stack, int c)
 
 	i = 0;
 	while (stack)
-	{
-    	if(stack->content == c)
-    		return(i);
+    {
+		if (stack->content == c)
+			return(i);
         i++;
-        stack = stack->next;
+	    stack = stack->next;
 	}
-	return (-1);
+    return (-1);
 }
 int	count_val_to_top(t_list *stack, int val)
 {
