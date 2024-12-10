@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:37:04 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/10 14:54:23 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/10 23:11:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,47 @@ int a_is_sorted(t_list *stack_a)
 	}
 	return (1);
 }
-void    push_b_till_3(t_list **stack_a, t_list **stack_b)
+void    push_b_till_3(t_list **stack_a, t_list **stack_b, int i)
 {
-      
+    t_list  *tmp;
+
+    tmp = *stack_a;
+    while (tmp->content != 0)
+    {
+        if (nb_move(tmp, *stack_b, tmp->content) == i)
+        {
+            val_top(stack_a, tmp->content, 'a');
+            if (tmp->content > ft_min(*stack_b) && tmp->content < ft_max(*stack_b))
+		        val_top(stack_b, ft_max(*stack_b), 'b');
+	        else
+		        sup_top_b(stack_b, tmp->content);
+        }
+    }
+}
+void    sort_big_stack(t_list **stack_a, t_list **stack_b)
+{    
+    t_list  *tmp;
+    int     i;
+    
+    if (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
+        push_b(stack_a, stack_b);
+    if (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
+        push_b(stack_a, stack_b);
+    if (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
+    {
+        tmp = *stack_a;
+        i = nb_move(tmp, *stack_b, tmp->content);
+        while (tmp->content != 0)
+        {
+            ft_printf("a\n");
+            if (nb_move(tmp, *stack_b, tmp->content) < i)
+                i = nb_move(tmp, *stack_b, tmp->content);
+            tmp = tmp->next;
+        }
+        push_b_till_3(stack_a, stack_b, i);
+    }
+    sort_three(stack_a);
+    back_to_a(stack_a, stack_b);
 }
 void    sort_small_stack(t_list **stack_a, int nb_word)
 {
@@ -36,17 +74,6 @@ void    sort_small_stack(t_list **stack_a, int nb_word)
         swap_a(stack_a, 1);
     if (nb_word == 3)
         sort_three(stack_a);
-}
-void    sort_big_stack(t_list **stack_a, t_list **stack_b)
-{
-    if (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
-        push_b(stack_a, stack_b);
-    if (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
-        push_b(stack_a, stack_b);
-    if (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
-        push_b_till_3(stack_a, stack_b);
-    sort_three(stack_a);
-    back_to_a(stack_a, stack_b);
 }
 void    ft_sort(t_list **stack_a, t_list **stack_b, int nb_word)
 {

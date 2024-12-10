@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 09:16:34 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/10 14:54:04 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/10 22:06:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void    sup_top_a(t_list **stack, int val)
     }
     else
         val_top(stack, ft_min(*stack), 'a');    
+}
+void    sup_top_b(t_list **stack, int val)
+{
+    while ((*stack)->content > val || (*stack)->next->content < val)
+        rotate_b(stack, 1);
 }
 void    back_to_a(t_list **stack_a, t_list **stack_b)
 {
