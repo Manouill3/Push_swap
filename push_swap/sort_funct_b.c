@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:04:28 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/06 09:42:38 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:42:20 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void  push_b(t_list **stacksta, t_list **stackend)
     ft_lstadd_front(stackend, (*stacksta));
     *stacksta = tmp;
     ft_printf("pb\n");
+    // print_stack(*stackend);
+    // ft_printf("\n");
 }
 void  rotate_b(t_list **stack, int all)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:46:45 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/10 22:42:26 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/11 15:07:41 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,15 @@ int	nb_move(t_list *stack_a, t_list *stack_b, int val)
 
 	i = 0;
 	i += count_val_to_top(stack_a, val);
-	if (val > ft_min(stack_b) && val < ft_max(stack_b))
+	if (val < ft_min(stack_b) || val > ft_max(stack_b))
+	{
+		ft_printf("Here\n");
 		i += count_val_to_top(stack_b, ft_max(stack_b));
+	}
 	else
+	{
+		ft_printf("Heree\n");
 		i += count_sup_to_top(stack_b, val);
-	ft_printf("b\n");
+	}
 	return (i);
 }
