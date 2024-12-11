@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:37:04 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/11 16:09:37 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/12/11 16:32:52 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void    push_b_till_3(t_list **stack_a, t_list **stack_b, int i)
     tmp = *stack_a;
     while (tmp)
     {
-        print_stack(*stack_b);
-    
         if (nb_move(tmp, *stack_b, tmp->content) == i)
         {
             val_top(stack_a, tmp->content, 'a');
@@ -48,7 +46,6 @@ void    push_b_till_3(t_list **stack_a, t_list **stack_b, int i)
         }
         else
             tmp = tmp->next;
-        ft_printf("\n");
     }
 }
 void    sort_big_stack(t_list **stack_a, t_list **stack_b)
