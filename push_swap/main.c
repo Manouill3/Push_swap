@@ -35,8 +35,6 @@ int	main(int ac, char **av)
 			ft_sort(&stack_a, &stack_b, nb_word);
 			ft_printf("\n");
 			print_stack(stack_a);
-			ft_printf("\n");
-			print_stack(stack_b);
 		}
 		free(list);
 		ft_lstclear(&stack_a);

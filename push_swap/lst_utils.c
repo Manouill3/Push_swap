@@ -74,10 +74,6 @@ int	count_val_to_top(t_list *stack, int val)
 	{
 		i++;
 		tmp = tmp->next;
-		// if (ft_index(stack, val) > ft_lstsize(stack) / 2)
-		// 	reverse_rotate_a(&stack, 0);
-		// else
-		// 	rotate_a(&stack, 0);
 	}
 	return (i);
 }

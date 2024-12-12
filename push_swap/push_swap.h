@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/11 15:30:42 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:57:16 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ int	    ft_min(t_list *stack);
 int	    ft_max(t_list *stack);
 int     ft_index(t_list *stack, int c);
 void	val_top(t_list **stack, int val, char s);
-void    sup_top_a(t_list **stack, int val);
+void    sup_top_a(t_list **stack_a, int val);
 int	    count_val_to_top(t_list *stack, int val);
-int     count_sup_to_top(t_list *stack_b, int val);
-int     rr_or_r(t_list *stack, int val);
+int     count_sup_to_top(t_list *stack_b, t_list *stack_a, int val);
 int	    nb_move(t_list *stack_a, t_list *stack_b, int val);
-void    sup_top_b(t_list **stack, int val);
+void    sup_top_b(t_list **stack_b, int val);
+int     find_place_b(t_list *stack_b, int val);
+int     ft_strlen_number(char *str);
+int     find_place_a(t_list *stack_a, int val);
 
 #endif

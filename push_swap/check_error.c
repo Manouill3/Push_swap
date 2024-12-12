@@ -19,6 +19,8 @@ int error_arg(char **tab, int nb_word)
     i = 0;
     while (i < nb_word)
     {
+        if (ft_strlen_number(tab[i]) > 11)
+            return(-1);
         if(check_char(tab, i) < 0)
             return (-1);
         i++;
@@ -68,4 +70,17 @@ int check_char(char **tab, int i)
     if (count == 0)
         return (-1);
     return (1);
+}
+int ft_strlen_number(char *str)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while (str[i] == '0' || str[i] == '-' || str[i] == '+' || str[i] == ' ')
+        i++;
+    while (str[i])
+        i++;
+    return(i);
 }
