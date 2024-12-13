@@ -81,6 +81,9 @@ int ft_strlen_number(char *str)
     while (str[i] == '0' || str[i] == '-' || str[i] == '+' || str[i] == ' ')
         i++;
     while (str[i])
+    {
         i++;
-    return(i);
+        j++;
+    }
+    return(j);
 }

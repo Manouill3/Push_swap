@@ -24,7 +24,6 @@ t_list *copy_stack(t_list *stack)
     }
     return new_stack;
 }
-
 int count_sup_to_top(t_list *stack_b, t_list *stack_a, int val)
 {
     int i;
@@ -51,63 +50,39 @@ int count_sup_to_top(t_list *stack_b, t_list *stack_a, int val)
     ft_lstclear(&stack_copy);
     return (i);
 }
-int find_place_b(t_list *stack_b, int val)
+int find_place_a(t_list *stack_a, int val)
 {
-    t_list  *curr;
     int i;
+    int size;
 
     i = 0;
-    curr = stack_b;
-    while(curr->next)
-        curr = curr->next;
-    while (stack_b->content < val || curr->content > val)
+    size = ft_lstsize(stack_a);
+    if (!stack_a || !stack_a->next)
+        return (0);
+    while (i < size)
     {
-        curr = stack_b;
-        while(curr->next)
-            curr = curr->next;
-        if (stack_b->content > val && curr->content < val)
+        if (stack_a->content < val && stack_a->next->content > val)
             break;
-        rotate_a(&stack_b, 1);
+        stack_a = stack_a->next;
         i++;
     }
     return (i);
 }
-int find_place_a(t_list *stack_a, int val)
+int find_place_b(t_list *stack_b, int val)
 {
-    t_list  *curr;
     int i;
+    int size;
 
     i = 0;
-    curr = stack_a;
-    while(curr->next)
-        curr = curr->next;
-    while (stack_a->content < val || curr->content > val)
+    size = ft_lstsize(stack_b);
+    if (!stack_b || !stack_b->next)
+        return (0);
+    while (i < size)
     {
-        curr = stack_a;
-        while(curr->next)
-            curr = curr->next;
-        if (stack_a->content > val && curr->content < val)
+        if (stack_b->content > val && stack_b->next->content < val)
             break;
-        rotate_a(&stack_a, 1);
+        stack_b = stack_b->next;
         i++;
     }
-    return(i);
+    return (i);
 }
-
-// {
-//     int i;
-//     int size;
-
-//     i = 0;
-//     size = ft_lstsize(stack_a);
-//     if (!stack_a || !stack_a->next)
-//         return (0);
-//     while (i < size)
-//     {
-//         if (stack_a->content < val || stack_a->next->content > val)
-//             break;
-//         stack_a = stack_a->next;
-//         i++;
-//     }
-//     return (i);
-// }

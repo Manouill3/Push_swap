@@ -43,7 +43,7 @@ int count_word(char *str)
         if (str[i] && !is_whitespace(str[i]))
         {
             if (is_whitespace(str[i + 1]) || str[i + 1] == '\0')
-            count++;
+                count++;
         }
         i++;
     }
