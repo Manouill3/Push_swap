@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/12 14:57:16 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/15 00:02:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void    reverse_rotate_b(t_list **stack, int all);
 void    swap_all(t_list **stack_a, t_list **stack_b);
 void    rotate_all(t_list **stack_a, t_list **stack_b);
 void    reverse_rotate_all(t_list **stack_a, t_list **stack_b);
+void    rr_no_print(t_list **stack_a, t_list **stack_b);
+void    rrr_no_print(t_list **stack_a, t_list **stack_b);
 int	    ft_min(t_list *stack);
 int	    ft_max(t_list *stack);
 int     ft_index(t_list *stack, int c);
@@ -60,5 +62,13 @@ void    sup_top_b(t_list **stack_b, int val);
 int     find_place_b(t_list *stack_b, int val);
 int     ft_strlen_number(char *str);
 int     find_place_a(t_list *stack_a, int val);
+void    check_rr_rrr(t_list **stack_a, t_list **stack_b, int val_a, int val_b);
+void    add_rrr(t_list **stack_a, t_list **stack_b, int i, int j);
+void    add_rr(t_list **stack_a, t_list **stack_b, int i, int j);
+int    count_check_rr_rrr(t_list *stack_a, t_list *stack_b, int val_a, int val_b);
+int    count_add_rrr(t_list *stack_a, t_list *stack_b, int i, int j);
+int    count_add_rr(t_list *stack_a, t_list *stack_b, int i, int j);
+int    find_sup(t_list *stack, int val);
+t_list *copy_stack(t_list *stack);
 
 #endif

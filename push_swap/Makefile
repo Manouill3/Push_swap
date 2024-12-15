@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/12/09 09:53:23 by mdegache         ###   ########.fr        #
+#    Updated: 2024/12/14 22:20:15 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRC = main.c\
 	sort_funct_a.c\
 	sort_funct_b.c\
 	sort_funct_all.c\
+	opti_rr.c\
+	count_opti_rr.c\
 	
 OBJ = $(SRC:.c=.o)
 

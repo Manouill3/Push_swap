@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 09:16:34 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/13 13:16:07 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:27:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ void    sup_top_b(t_list **stack_b, int val)
 }
 void    back_to_a(t_list **stack_a, t_list **stack_b)
 {
+    ft_printf("\n");
+    print_stack(*stack_a);
+    ft_printf("\n");
+    print_stack(*stack_b);
+    ft_printf("\n");
     while (*stack_b)
     {
         if ((*stack_b)->content > ft_max(*stack_a) 

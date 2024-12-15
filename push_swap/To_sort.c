@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:46:45 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/12 10:06:29 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/15 00:26:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,23 @@ void	val_top(t_list **stack, int val, char s)
 int	nb_move(t_list *stack_a, t_list *stack_b, int val)
 {
 	int	i;
+	t_list	*copy_a;
+	t_list	*copy_b;
 
 	i = 0;
-	i += count_val_to_top(stack_a, val);
-	if (val < ft_min(stack_b) || val > ft_max(stack_b))
-		i += count_val_to_top(stack_b, ft_max(stack_b));
+	copy_a = copy_stack(stack_a);
+	copy_b = copy_stack(stack_b);
+	if (val < ft_min(copy_b) || val > ft_max(copy_b))
+	{
+		i += count_check_rr_rrr(copy_a, copy_b, val, ft_max(copy_b));
+		i += count_val_to_top(copy_a, val);
+		i += count_val_to_top(copy_b, ft_max(copy_b));
+	}
 	else
-		i += count_sup_to_top(stack_b, stack_a, val);
+	{
+		i += count_check_rr_rrr(copy_a, copy_b, val, find_sup(copy_b, val));
+		i += count_val_to_top(copy_a, val);
+		i += count_sup_to_top(copy_b, copy_a, val);
+	}
 	return (i);
 }
