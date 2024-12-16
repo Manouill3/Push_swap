@@ -24,30 +24,27 @@ t_list *copy_stack(t_list *stack)
     }
     return new_stack;
 }
-int count_sup_to_top(t_list *stack_b, t_list *stack_a, int val)
+int count_sup_to_top(t_list **stack_b, t_list **stack_a, int val)
 {
     int i;
-    t_list  *stack_copy;
 
     i = 0;
-    stack_copy = copy_stack(stack_b);
-    while (stack_copy->content < ft_max(stack_copy))
+    while ((*stack_b)->content < ft_max(*stack_b))
     {
-        if (ft_index(stack_copy, ft_max(stack_copy)) > ft_lstsize(stack_copy) / 2)
-            reverse_rotate_b(&stack_copy, 0);
+        if (ft_index(*stack_b, ft_max(*stack_b)) > ft_lstsize(*stack_b) / 2)
+            reverse_rotate_b(stack_b, 0);
         else
-            rotate_b(&stack_copy, 0);
+            rotate_b(stack_b, 0);
         i++;        
     }
-    while (stack_copy->content < val)
+    while ((*stack_b)->content < val)
     {
-        if (find_place_b(stack_a, val) > ft_lstsize(stack_copy) / 2)
-            reverse_rotate_b(&stack_copy, 0);
+        if (find_place_b(*stack_a, val) > ft_lstsize(*stack_b) / 2)
+            reverse_rotate_b(stack_b, 0);
         else
-            rotate_b(&stack_copy, 0);
+            rotate_b(stack_b, 0);
         i++;
     }
-    ft_lstclear(&stack_copy);
     return (i);
 }
 int find_place_a(t_list *stack_a, int val)
@@ -86,21 +83,21 @@ int find_place_b(t_list *stack_b, int val)
     }
     return (i);
 }
-int find_sup(t_list *stack, int val)
+int find_sup(t_list *stack_b, int val)
 {
     int i;
     int size;
 
-    i = 0;
-    size = ft_lstsize(stack);
-    if (!stack || !stack->next)
+    i = stack_b->content;
+    size = ft_lstsize(stack_b);
+    if (!stack_b || !stack_b->next)
         return (0);
     while (i < size)
     {
-        if (stack->content > val && stack->next->content < val)
+        if (stack_b->content > val && stack_b->next->content < val)
             break;
-        stack = stack->next;
-        i++;
+        stack_b = stack_b->next;
+        i = stack_b->content;
     }
     return (i);
 }

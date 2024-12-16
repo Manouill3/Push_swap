@@ -21,7 +21,7 @@ void    check_rr_rrr(t_list **stack_a, t_list **stack_b, int val_a, int val_b)
     j = ft_index(*stack_b, val_b);
     if (i > ft_lstsize(*stack_a) / 2 && j > ft_lstsize(*stack_b) / 2)
         add_rrr(stack_a, stack_b, i, j);
-    else if (i < ft_lstsize(*stack_a) / 2 && j < ft_lstsize(*stack_b) / 2)
+    else if (i <= ft_lstsize(*stack_a) / 2 && j <= ft_lstsize(*stack_b) / 2)
         add_rr(stack_a, stack_b, i, j); 
 }
 void    add_rrr(t_list **stack_a, t_list **stack_b, int i, int j)
@@ -53,7 +53,7 @@ void    add_rr(t_list **stack_a, t_list **stack_b, int i, int j)
 
     if (i > j)
     {
-        k = ft_lstsize(*stack_b) - j;
+        k = j;
         while (k > 0)
         {
             k--;
@@ -62,7 +62,7 @@ void    add_rr(t_list **stack_a, t_list **stack_b, int i, int j)
     }
     else
     {
-        k = ft_lstsize(*stack_a) - i;
+        k = i;
         while (k > 0)
         {
             k--;

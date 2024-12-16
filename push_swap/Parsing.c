@@ -18,9 +18,9 @@ long    *arg_to_list(char **av, int nb_word)
     long    *list;
     
     tab = arg_to_tab(av, nb_word);
-    if (error_arg(tab, nb_word) < 0)
+    if (error_arg(tab, av, nb_word) < 0)
     {
-        ft_printf("Error\n");
+        write(2, "Error\n", 6);
         free_all(tab, nb_word);
         return(NULL);
     }
@@ -28,7 +28,7 @@ long    *arg_to_list(char **av, int nb_word)
     list = tab_to_list(tab, list, nb_word);
     if (error_double(list, nb_word) < 0)
     {
-        ft_printf("Error\n");
+        write(2, "Error\n", 6);
         free_all(tab, nb_word);
         free(list);
         return(NULL);

@@ -54,26 +54,24 @@ int ft_index(t_list *stack, int c)
     int i;
 
 	i = 0;
-	while (stack)
+	while (stack->content != c)
     {
-		if (stack->content == c)
-			return(i);
         i++;
 	    stack = stack->next;
 	}
-    return (-1);
+    return (i);
 }
-int	count_val_to_top(t_list *stack, int val)
+int	count_val_to_top(t_list **stack, int val)
 {
 	int 	i;
-	t_list	*tmp;
 
 	i = 0;
-	tmp = stack;
-	while (tmp->content != val)
+	while ((*stack)->content != val)
 	{
-		i++;
-		tmp = tmp->next;
+		if (ft_index(*stack, val) > ft_lstsize(*stack) / 2)
+			reverse_rotate_a(stack, 0);\
+		else
+			rotate_a(stack, 0);
 	}
 	return (i);
 }

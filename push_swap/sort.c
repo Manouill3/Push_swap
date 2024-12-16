@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:37:04 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/15 00:26:27 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/16 14:01:20 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ void    push_b_till_3(t_list **stack_a, t_list **stack_b, int i)
     t_list  *tmp;
 
     tmp = *stack_a;
-    ft_printf("\n");
-    print_stack(*stack_a);
-    ft_printf("\n");
-    print_stack(*stack_b);
-    ft_printf("\n");
     while (tmp)
     {
         if (nb_move(tmp, *stack_b, tmp->content) == i)
@@ -54,7 +49,7 @@ void    push_b_till_3(t_list **stack_a, t_list **stack_b, int i)
             }
             i = -1;
             push_b(stack_a, stack_b);
-            tmp = *stack_a;
+            break;
         }
         else
             tmp = tmp->next;
@@ -69,22 +64,16 @@ void    sort_big_stack(t_list **stack_a, t_list **stack_b)
         push_b(stack_a, stack_b);
     if (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
         push_b(stack_a, stack_b);
-    ft_printf("\n");
-    print_stack(*stack_a);
-    ft_printf("\n");
-    print_stack(*stack_b);
-    ft_printf("\n");
     while (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
     {
         tmp = *stack_a;
         i = nb_move(tmp, *stack_b, tmp->content);
-        while (tmp && tmp->next)
+        while (tmp && tmp->next && i != 0)
         {
             if (nb_move(tmp, *stack_b, tmp->content) < i)
                 i = nb_move(tmp, *stack_b, tmp->content);
             tmp = tmp->next;
         }
-        ft_printf("%d\n", i);
         push_b_till_3(stack_a, stack_b, i);
     }
     sort_three(stack_a);
