@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:46:45 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/16 11:35:43 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/16 23:20:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,28 +65,51 @@ void	val_top(t_list **stack, int val, char s)
 		}
 	}
 }
+
+/////////////////////////////////////////////////////
+//                  nb_move                        //
+/////////////////////////////////////////////////////
 int	nb_move(t_list *stack_a, t_list *stack_b, int val)
 {
 	int	i;
 	t_list	*copy_a;
 	t_list	*copy_b;
 
-	i = 0;
+	i = 1;
 	copy_a = copy_stack(stack_a);
 	copy_b = copy_stack(stack_b);
 	if (val < ft_min(copy_b) || val > ft_max(copy_b))
 	{
+		ft_printf("noww : %d\n", i);
 		i += count_check_rr_rrr(&copy_a, &copy_b, val, ft_max(copy_b));
+		ft_printf("noww : %d\n", i);
 		i += count_val_to_top(&copy_a, val);
+		ft_printf("noww : %d\n", i);
 		i += count_val_to_top(&copy_b, ft_max(copy_b));
+		ft_printf("noww : %d\n", i);
 	}
 	else
 	{
+		ft_printf("now : %d\n", i);
 		i += count_check_rr_rrr(&copy_a, &copy_b, val, find_sup(copy_b, val));
+		ft_printf("now : %d\n", i);
 		i += count_val_to_top(&copy_a, val);
-		i += count_sup_to_top(&copy_b, &copy_a, val);
+		ft_printf("now : %d\n", i);
+		i += count_sup_to_top(&copy_b, val);
+		ft_printf("now : %d\n", i);
 	}
 	ft_lstclear(&copy_a);
 	ft_lstclear(&copy_b);
 	return (i);
 }
+/*
+/////////////////////////////////////////////////////
+//                 nb_move_2                       //
+/////////////////////////////////////////////////////
+int	nb_move(t_list *stack_a, t_list *stack_b, int val)
+{
+	int	i;
+	
+	i = 1;
+}
+*/

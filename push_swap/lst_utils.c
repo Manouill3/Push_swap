@@ -69,9 +69,10 @@ int	count_val_to_top(t_list **stack, int val)
 	while ((*stack)->content != val)
 	{
 		if (ft_index(*stack, val) > ft_lstsize(*stack) / 2)
-			reverse_rotate_a(stack, 0);\
+			reverse_rotate_a(stack, 0);
 		else
 			rotate_a(stack, 0);
+		i++;
 	}
 	return (i);
 }

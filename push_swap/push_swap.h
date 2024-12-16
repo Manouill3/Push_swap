@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/16 13:43:34 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/16 23:20:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int     ft_index(t_list *stack, int c);
 void	val_top(t_list **stack, int val, char s);
 void    sup_top_a(t_list **stack_a, int val);
 int	    count_val_to_top(t_list **stack, int val);
-int     count_sup_to_top(t_list **stack_b, t_list **stack_a, int val);
+int     count_sup_to_top(t_list **stack_b, int val);
 int	    nb_move(t_list *stack_a, t_list *stack_b, int val);
 void    sup_top_b(t_list **stack_b, int val);
 int     find_place_b(t_list *stack_b, int val);

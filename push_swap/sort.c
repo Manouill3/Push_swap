@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:37:04 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/16 14:01:20 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/16 23:35:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,22 @@ void    sort_big_stack(t_list **stack_a, t_list **stack_b)
         push_b(stack_a, stack_b);
     while (ft_lstsize(*stack_a) > 3 && !a_is_sorted(*stack_a))
     {
+        ft_printf("\n");
+        print_stack(*stack_a);
         tmp = *stack_a;
         i = nb_move(tmp, *stack_b, tmp->content);
-        while (tmp && tmp->next && i != 0)
+        while (tmp && tmp->next)
         {
+            ft_printf("je suis le plus faible : %d\n", i);
+            ft_printf("\n");
             if (nb_move(tmp, *stack_b, tmp->content) < i)
                 i = nb_move(tmp, *stack_b, tmp->content);
+            ft_printf("je suis le nb_move : %d\n", nb_move(tmp, *stack_b, tmp->content));
             tmp = tmp->next;
         }
+        ft_printf("\n");
         push_b_till_3(stack_a, stack_b, i);
+        ft_printf("\n");
     }
     sort_three(stack_a);
     back_to_a(stack_a, stack_b);
