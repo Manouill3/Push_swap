@@ -6,13 +6,13 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:52:01 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/26 11:33:51 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:59:12 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, int(*f)(int))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 {
 	t_list	*new;
 	t_list	*result;

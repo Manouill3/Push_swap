@@ -12,70 +12,73 @@
 
 #include "push_swap.h"
 
-long    *arg_to_list(char **av, int nb_word)
-{   
-    char    **tab;
-    long    *list;
-    
-    tab = arg_to_tab(av, nb_word);
-    if (error_arg(tab, av, nb_word) < 0)
-    {
-        write(2, "Error\n", 6);
-        free_all(tab, nb_word);
-        return(NULL);
-    }
-    list = malloc(sizeof(long) * nb_word);
-    list = tab_to_list(tab, list, nb_word);
-    if (error_double(list, nb_word) < 0)
-    {
-        write(2, "Error\n", 6);
-        free_all(tab, nb_word);
-        free(list);
-        return(NULL);
-    }
-    free_all(tab, nb_word);
-    return (list);
-}
-char    **arg_to_tab(char **av, int nb_word)
+long	*arg_to_list(char **av, int nb_word)
 {
-    int i;
-    int j;
-    int k;
-    char    **tab;
-    char    **tmp_tab;
+	char	**tab;
+	long	*list;
 
-    i = 1;
-    k = 0;
-    tab = malloc(sizeof(char *) * nb_word + 1);
-    if (!tab)
-        return(NULL);
-    while (av[i])
-    {
-        tmp_tab = ft_split(av[i], ' ');
-        j = 0;
-        while (tmp_tab[j])
-            tab[k++] = tmp_tab[j++];
-        free(tmp_tab);
-        i++;
-    }
-    return (tab);
+	tab = arg_to_tab(av, nb_word);
+	if (error_arg(tab, av, nb_word) < 0)
+	{
+		write(2, "Error\n", 6);
+		free_all(tab, nb_word);
+		return (NULL);
+	}
+	list = malloc(sizeof(long) * nb_word);
+	list = tab_to_list(tab, list, nb_word);
+	if (error_double(list, nb_word) < 0)
+	{
+		write(2, "Error\n", 6);
+		free_all(tab, nb_word);
+		free(list);
+		return (NULL);
+	}
+	free_all(tab, nb_word);
+	return (list);
 }
-long    *tab_to_list(char **tab, long *list, int nb_word)
-{
-    int i;
 
-    i = 0;
-    while (i < nb_word)
-    {
-        list[i] = ft_atoi(tab[i]);
-        i++;
-    }
-    return (list);
-}
-t_list  *list_to_stack(long *list, t_list *stack_a, int nb_word)
+char	**arg_to_tab(char **av, int nb_word)
 {
-    int	i;
-	
+	int		i;
+	int		j;
+	int		k;
+	char	**tab;
+	char	**tmp_tab;
+
+	i = 1;
+	k = 0;
+	tab = malloc(sizeof(char *) * nb_word + 1);
+	if (!tab)
+		return (NULL);
+	while (av[i])
+	{
+		tmp_tab = ft_split(av[i], ' ');
+		j = 0;
+		while (tmp_tab[j])
+			tab[k++] = tmp_tab[j++];
+		free(tmp_tab);
+		i++;
+	}
+	return (tab);
+}
+
+long	*tab_to_list(char **tab, long *list, int nb_word)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb_word)
+	{
+		list[i] = ft_atoi(tab[i]);
+		i++;
+	}
+	return (list);
+}
+
+t_list	*list_to_stack(long *list, t_list *stack_a, int nb_word)
+{
+	int	i;
+
 	i = nb_word - 1;
 	while (i >= 0)
 	{

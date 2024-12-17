@@ -12,95 +12,101 @@
 
 #include "push_swap.h"
 
-int error_arg(char **tab, char **av, int nb_word)
+int	error_arg(char **tab, char **av, int nb_word)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    j = 0;
-    while (i < nb_word)
-    {
-        if (ft_strlen_number(tab[i]) > 11)
-            return(-1);
-        if(check_char(tab, i) < 0)
-            return (-1);
-        i++;
-    }
-    while (av[j])
-    {
-        if (len_arg(av[j]) == 0 || (av[j][0] == ' ' && ft_strlen_number(av[j]) == 0))
-            return (-1);
-        j++;
-    }
-    if (i < nb_word || nb_word == 0)
-        return (-1);
-    return (1);
+	i = 0;
+	j = 0;
+	while (i < nb_word)
+	{
+		if (ft_strlen_number(tab[i]) > 11)
+			return (-1);
+		if (check_char(tab, i) < 0)
+			return (-1);
+		i++;
+	}
+	while (av[j])
+	{
+		if (len_arg(av[j]) == 0
+			|| (av[j][0] == ' ' && ft_strlen_number(av[j]) == 0))
+			return (-1);
+		j++;
+	}
+	if (i < nb_word || nb_word == 0)
+		return (-1);
+	return (1);
 }
-int check_char(char **tab, int i)
-{
-    int j;
-    int count;
 
-    j = 0;
-    count = 0;
-    while (tab[i][j])
-    {
-        if ((tab[i][j] == '-' || tab[i][j] == '+') && (tab[i][j - 1] < '0' || tab[i][j - 1] > '9'))
-            j++;
-        if ((tab[i][j] < '0' || tab[i][j] > '9') && tab[i][j] != ' ')
-            return (-1);
-        if (tab[i][j] != ' ')
-            count++;
-        j++;
-    }
-    if (count == 0)
-        return (-1);
-    return (1);
-}
-int error_double(long *list, int nb_word)
+int	check_char(char **tab, int i)
 {
-    int i;
-    int j;
-    
-    i = 0;
-    while(i < nb_word)
-    {
-        if (list[i] > 2147483647 || list[i] < -2147483648)
-            return(-1);
-        j = i + 1;
-        while(j < nb_word)
-        {
-            if(list[i] == list[j])
-                return(-1);
-            j++;
-        }
-        i++;
-    }
-    return(1);
-}
-int ft_strlen_number(char *str)
-{
-    int i;
-    int j;
+	int	j;
+	int	count;
 
-    i = 0;
-    j = 0;
-    while (str[i] == '0' || str[i] == '-' || str[i] == '+' || str[i] == ' ')
-        i++;
-    while (str[i])
-    {
-        i++;
-        j++;
-    }
-    return(j);
+	j = 0;
+	count = 0;
+	while (tab[i][j])
+	{
+		if ((tab[i][j] == '-' || tab[i][j] == '+')
+			&& (tab[i][j - 1] < '0' || tab[i][j - 1] > '9'))
+			j++;
+		if ((tab[i][j] < '0' || tab[i][j] > '9') && tab[i][j] != ' ')
+			return (-1);
+		if (tab[i][j] != ' ')
+			count++;
+		j++;
+	}
+	if (count == 0)
+		return (-1);
+	return (1);
 }
-int len_arg(char *str)
-{
-    int i;
 
-    i = 0;
-    while(str[i])
-        i++;
-    return(i);
+int	error_double(long *list, int nb_word)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < nb_word)
+	{
+		if (list[i] > 2147483647 || list[i] < -2147483648)
+			return (-1);
+		j = i + 1;
+		while (j < nb_word)
+		{
+			if (list[i] == list[j])
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	ft_strlen_number(char *str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i] == '0' || str[i] == '-' || str[i] == '+' || str[i] == ' ')
+		i++;
+	while (str[i])
+	{
+		i++;
+		j++;
+	}
+	return (j);
+}
+
+int	len_arg(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

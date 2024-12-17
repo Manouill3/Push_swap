@@ -23,6 +23,7 @@ void	print_stack(t_list *stack)
 		curr = curr->next;
 	}
 }
+
 int	ft_min(t_list *stack)
 {
 	int		i;
@@ -36,6 +37,7 @@ int	ft_min(t_list *stack)
 	}
 	return (i);
 }
+
 int	ft_max(t_list *stack)
 {
 	int		i;
@@ -49,21 +51,23 @@ int	ft_max(t_list *stack)
 	}
 	return (i);
 }
-int ft_index(t_list *stack, int c)
+
+int	ft_index(t_list *stack, int c)
 {
-    int i;
+	int	i;
 
 	i = 0;
 	while (stack->content != c)
-    {
-        i++;
-	    stack = stack->next;
+	{
+		i++;
+		stack = stack->next;
 	}
-    return (i);
+	return (i);
 }
+
 int	count_val_to_top(t_list **stack, int val)
 {
-	int 	i;
+	int	i;
 
 	i = 0;
 	while ((*stack)->content != val)

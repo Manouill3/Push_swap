@@ -6,15 +6,15 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 11:51:03 by mdegache          #+#    #+#             */
-/*   Updated: 2024/11/27 14:06:47 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:55:50 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long	ft_atoi(const char *nptr)
 {
-	int	i;
+	int		i;
 	long	nb;
-	int	sign;
+	int		sign;
 
 	sign = 1;
 	nb = 0;

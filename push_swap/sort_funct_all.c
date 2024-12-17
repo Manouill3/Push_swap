@@ -3,40 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   sort_funct_all.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:13:32 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/14 23:13:30 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:51:20 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void  swap_all(t_list **stack_a, t_list **stack_b)
-{   
-    swap_a(stack_a, 0);
-    swap_b(stack_b, 0);
-    ft_printf("ss\n");
-}
-void  rotate_all(t_list **stack_a, t_list **stack_b)
+void	swap_all(t_list **stack_a, t_list **stack_b)
 {
-    rotate_a(stack_a, 0);
-    rotate_b(stack_b, 0);
-    ft_printf("rr\n");
+	swap_a(stack_a, 0);
+	swap_b(stack_b, 0);
+	ft_printf("ss\n");
 }
-void  reverse_rotate_all(t_list **stack_a, t_list **stack_b)
+
+void	rotate_all(t_list **stack_a, t_list **stack_b)
 {
-    reverse_rotate_a(stack_a, 0);
-    reverse_rotate_b(stack_b, 0);
-    ft_printf("rrr\n");
+	rotate_a(stack_a, 0);
+	rotate_b(stack_b, 0);
+	ft_printf("rr\n");
 }
-void    rrr_no_print(t_list **stack_a, t_list **stack_b)
+
+void	reverse_rotate_all(t_list **stack_a, t_list **stack_b)
 {
-    reverse_rotate_a(stack_a, 0);
-    reverse_rotate_b(stack_b, 0);
+	reverse_rotate_a(stack_a, 0);
+	reverse_rotate_b(stack_b, 0);
+	ft_printf("rrr\n");
 }
-void    rr_no_print(t_list **stack_a, t_list **stack_b)
+
+void	rrr_no_print(t_list **stack_a, t_list **stack_b)
 {
-    rotate_a(stack_a, 0);
-    rotate_b(stack_b, 0);
+	reverse_rotate_a(stack_a, 0);
+	reverse_rotate_b(stack_b, 0);
+}
+
+void	rr_no_print(t_list **stack_a, t_list **stack_b)
+{
+	rotate_a(stack_a, 0);
+	rotate_b(stack_b, 0);
 }
