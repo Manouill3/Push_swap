@@ -31,7 +31,6 @@ int	count_sup_to_top(t_list **stack_b, int val)
 {
 	t_list	*curr;
 	int		i;
-	int		i;
 
 	i = 0;
 	curr = *stack_b;
