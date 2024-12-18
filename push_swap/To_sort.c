@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:46:45 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/17 14:48:51 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:24:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,27 @@ void	val_top(t_list **stack, int val, char s)
 
 int	nb_move(t_list *stack_a, t_list *stack_b, int val)
 {
+	int	i;
+	int	j;
+	int	size;
+
+	i = ft_index(stack_a, val);
+	size = ft_lstsize(stack_a);
+	if (i > size / 2)
+		i = size - i;
+	size = ft_lstsize(stack_b);
+	j = ft_index(stack_b, ft_max(stack_b));
+	if (j > size / 2)
+		j = size - j;
+	if ((ft_index(stack_a, val) > ft_lstsize(stack_a) / 2 && ft_index(stack_b, /**/) > ft_lstsize(stack_b) / 2)
+		|| (ft_index(stack_a, val) <= ft_lstsize(stack_a) / 2 && ft_index(stack_b, /**/) <= ft_lstsize(stack_b) / 2))
+		if (i < j)
+			i = j;
+	else
+		i = i + j;
+	return (i);
+}
+/*{
 	int		i;
 	t_list	*copy_a;
 	t_list	*copy_b;
@@ -96,7 +117,7 @@ int	nb_move(t_list *stack_a, t_list *stack_b, int val)
 	ft_lstclear(&copy_a);
 	ft_lstclear(&copy_b);
 	return (i);
-}
+}*/
 
 void	till_3_op(t_list **stack_a, t_list **stack_b, int val)
 {
