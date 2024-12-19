@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 10:34:11 by mdegache          #+#    #+#              #
-#    Updated: 2024/10/24 09:36:43 by mdegache         ###   ########.fr        #
+#    Updated: 2024/12/19 09:11:17 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,14 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(SRC) $(CFLAGS)
-		$(AR) $(NAME) -o $^
+		@$(CC) $(SRC) $(CFLAGS)
+		@$(AR) $(NAME) -o $^
 
 clean:
-		rm -f $(OBJ)
+		@rm -f $(OBJ)
     
 fclean: clean
-		rm -f $(NAME) $(OBJ)
+		@rm -f $(NAME) $(OBJ)
     
 re: fclean all
  .PHONY: clean fclean all re

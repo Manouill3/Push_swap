@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   To_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:46:45 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/18 19:24:16 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/19 15:41:10 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,49 +75,19 @@ void	val_top(t_list **stack, int val, char s)
 int	nb_move(t_list *stack_a, t_list *stack_b, int val)
 {
 	int	i;
-	int	j;
 	int	size;
 
 	i = ft_index(stack_a, val);
 	size = ft_lstsize(stack_a);
 	if (i > size / 2)
 		i = size - i;
-	size = ft_lstsize(stack_b);
-	j = ft_index(stack_b, ft_max(stack_b));
-	if (j > size / 2)
-		j = size - j;
-	if ((ft_index(stack_a, val) > ft_lstsize(stack_a) / 2 && ft_index(stack_b, /**/) > ft_lstsize(stack_b) / 2)
-		|| (ft_index(stack_a, val) <= ft_lstsize(stack_a) / 2 && ft_index(stack_b, /**/) <= ft_lstsize(stack_b) / 2))
-		if (i < j)
-			i = j;
+	if (val < ft_max(stack_b) && val > ft_min(stack_b))
+		i = nb_move_mid(stack_a, stack_b, val, i);
 	else
-		i = i + j;
+		i = nb_move_max(stack_a, stack_b, val, i);
+	i += 1;
 	return (i);
 }
-/*{
-	int		i;
-	t_list	*copy_a;
-	t_list	*copy_b;
-
-	i = 1;
-	copy_a = copy_stack(stack_a);
-	copy_b = copy_stack(stack_b);
-	if (val < ft_min(copy_b) || val > ft_max(copy_b))
-	{
-		i += count_rr_rrr(&copy_a, &copy_b, val, ft_max(copy_b));
-		i += count_val_to_top(&copy_a, val);
-		i += count_val_to_top(&copy_b, ft_max(copy_b));
-	}
-	else
-	{
-		i += count_rr_rrr(&copy_a, &copy_b, val, find_sup(copy_b, val));
-		i += count_val_to_top(&copy_a, val);
-		i += count_sup_to_top(&copy_b, val);
-	}
-	ft_lstclear(&copy_a);
-	ft_lstclear(&copy_b);
-	return (i);
-}*/
 
 void	till_3_op(t_list **stack_a, t_list **stack_b, int val)
 {

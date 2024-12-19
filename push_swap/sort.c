@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:37:04 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/17 14:10:50 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:23:03 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b)
 	{
 		tmp = *stack_a;
 		i = nb_move(tmp, *stack_b, tmp->content);
-		while (tmp && i != 1)
+		while (tmp)
 		{
 			if (nb_move(*stack_a, *stack_b, tmp->content) < i)
 				i = nb_move(*stack_a, *stack_b, tmp->content);

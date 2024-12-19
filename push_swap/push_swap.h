@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:28:22 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/17 14:22:57 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:52:37 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,11 @@ int		find_place_a(t_list *stack_a, int val);
 void	check_rr_rrr(t_list **stack_a, t_list **stack_b, int val_a, int val_b);
 void	add_rrr(t_list **stack_a, t_list **stack_b, int i, int j);
 void	add_rr(t_list **stack_a, t_list **stack_b, int i, int j);
-int		count_rr_rrr(t_list **stack_a, t_list **stack_b, int val_a, int val_b);
-int		count_add_rrr(t_list **stack_a, t_list **stack_b, int i, int j);
-int		count_add_rr(t_list **stack_a, t_list **stack_b, int i, int j);
 int		find_sup(t_list *stack, int val);
 t_list	*copy_stack(t_list *stack);
 int		len_arg(char *str);
 void	till_3_op(t_list **stack_a, t_list **stack_b, int val);
+int		nb_move_max(t_list *stack_a, t_list *stack_b, int val, int i);
+int		nb_move_mid(t_list *stack_a, t_list *stack_b, int val, int i);
 
 #endif

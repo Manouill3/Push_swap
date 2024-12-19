@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 09:16:34 by mdegache          #+#    #+#             */
-/*   Updated: 2024/12/17 14:14:49 by mdegache         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:44:05 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,48 @@ void	back_to_a(t_list **stack_a, t_list **stack_b)
 		push_a(stack_b, stack_a);
 	}
 	val_top(stack_a, ft_min(*stack_a), 'a');
+}
+
+int	nb_move_max(t_list *stack_a, t_list *stack_b, int val, int i)
+{
+	int	j;
+	int	size;
+
+	size = ft_lstsize(stack_b);
+	j = ft_index(stack_b, ft_max(stack_b));
+	if (j > size / 2)
+		j = size - j;
+	if ((ft_index(stack_a, val) > ft_lstsize(stack_a) / 2
+			&& ft_index(stack_b, ft_max(stack_b)) > ft_lstsize(stack_b) / 2)
+		|| (ft_index(stack_a, val) <= ft_lstsize(stack_a) / 2
+			&& ft_index(stack_b, ft_max(stack_b)) <= ft_lstsize(stack_b) / 2))
+	{
+		if (i < j)
+			i = j;
+	}
+	else
+		i = i + j;
+	return (i);
+}
+
+int	nb_move_mid(t_list *stack_a, t_list *stack_b, int val, int i)
+{
+	int	j;
+	int	size;
+
+	size = ft_lstsize(stack_b);
+	j = ft_index(stack_b, find_sup(stack_b, val));
+	if (j > size / 2)
+		j = size - j;
+	if ((ft_index(stack_a, val) > ft_lstsize(stack_a) / 2
+			&& ft_index(stack_b, find_sup(stack_b, val)) > size / 2)
+		|| (ft_index(stack_a, val) <= ft_lstsize(stack_a) / 2
+			&& ft_index(stack_b, find_sup(stack_b, val)) <= size / 2))
+	{
+		if (i < j)
+			i = j;
+	}
+	else
+		i = i + j;
+	return (i);
 }

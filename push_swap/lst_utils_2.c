@@ -92,19 +92,21 @@ int	find_place_b(t_list *stack_b, int val)
 
 int	find_sup(t_list *stack_b, int val)
 {
-	int	i;
-	int	size;
+	int		i;
+	int		size;
+	t_list	*prev;
 
 	i = stack_b->content;
 	size = ft_lstsize(stack_b);
-	if (!stack_b || !stack_b->next)
-		return (0);
-	while (i < size)
+	prev = stack_b;
+	stack_b = stack_b->next;
+	while (stack_b)
 	{
-		if (stack_b->content > val && stack_b->next->content < val)
-			break ;
-		stack_b = stack_b->next;
 		i = stack_b->content;
+		if (prev->content > val && stack_b->content < val)
+			break ;
+		prev = stack_b;
+		stack_b = stack_b->next;
 	}
 	return (i);
 }

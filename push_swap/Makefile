@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:49:17 by mdegache          #+#    #+#              #
-#    Updated: 2024/12/16 18:45:00 by marvin           ###   ########.fr        #
+#    Updated: 2024/12/19 15:55:25 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ SRC = main.c\
 	sort_funct_b.c\
 	sort_funct_all.c\
 	opti_rr.c\
-	count_opti_rr.c\
 	
 OBJ = $(SRC:.c=.o)
 
@@ -48,17 +47,17 @@ $(PRINTF):
 		@$(MAKE) -C $(LIBBIS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(SRC) -I$(LIB) -I$(LIBBIS) -c $<
+		@$(CC) $(CFLAGS) $(SRC) -I$(LIB) -I$(LIBBIS) -c $<
 
 clean:
 		@$(MAKE) -C $(LIB) clean
 		@$(MAKE) -C $(LIBBIS) clean
-		rm -f $(OBJ)
+		@rm -f $(OBJ)
 
 fclean: clean
 		@$(MAKE) -C $(LIB) fclean
 		@$(MAKE) -C $(LIBBIS) fclean
-		rm -f $(NAME) $(OBJ)
+		@rm -f $(NAME) $(OBJ)
 
 re: fclean all
  .PHONY: clean fclean all re
